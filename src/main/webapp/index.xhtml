@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE html>
+<html 
+   xmlns = "http://www.w3.org/1999/xhtml" 
+   xmlns:h = "http://java.sun.com/jsf/html"
+   xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Currency Convertion</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>   
+            <h1>Currency Convertion</h1>
+            
+            <h:form>
+                <p>Quantity: <h:inputText id="inputText" value="#{webInt.quantity}"/></p>
+                 <h:outputLabel for="currency1" value="From:  " />
+                <h:selectOneMenu id="currency1" value="#{webInt.originalCurrency}" style="width:70px">
+                    <f:selectItems value="#{webInt.currentCurrencies}" />
+                </h:selectOneMenu>
+                
+                <h:outputLabel for="currency2" value=" To:  " />
+                <h:selectOneMenu id="currency2" value="#{webInt.destinationCurrency}" style="width:70px">
+                    <f:selectItems value="#{webInt.currentCurrencies}" />
+                </h:selectOneMenu>
+               
+                <p><h:commandButton id="executeButton" value="Convert" action="#{webInt.onButtonTrigger}" /></p>
+                
+                <p>Converts to: <input id="outputBox" type="text" readonly="true" value="${webInt.displayedAnswer}"/></p>
+                
+                </p>
+                
+            
+            </h:form>
+            
+    </h:body>
+</html>
+
